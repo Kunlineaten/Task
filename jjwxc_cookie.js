@@ -1,15 +1,15 @@
 /**
  * JJWXC cookie - 提取 IDENTIFICATION/UA/APPDEVICE/SMDeviceID/READERID/SIGN
- * 適用 Quantumult X，搭配 rewrite 使用
- * 開啟後至【我的】-【福利中心】隨機兌換商品觸發腳本
- * 使用完畢在"http"前加"#"關閉腳本，避免重複提取
+ * 适用 Quantumult X，搭配 rewrite 使用
+ * 开启后至【我的】-【福利中心】随机兑换商品触发脚本
+ * 使用完毕在"http"前加"#"关闭脚本，避免重复提取
   [rewrite_local]
   http:\/\/app\.jjwxc\.org\/newWelfareIos\/executeExchange\?identification url script-response-body jjwxc_cookie.js
 
   [mitm]
   hostname = app.jjwxc.org
 
- * 原創於坤離，任何疑問參考：https://kunlineaten.notion.site
+ * 原创于坤离，任何疑问参考：https://kunlineaten.notion.site
  */
 
 function findKeyLike(obj, keyword) {
@@ -28,7 +28,6 @@ function findKeyLike(obj, keyword) {
 }
 
 try {
-  // ✅ 從 URL 提取 identification 和 sign (aSIGN) 
   if ($request?.url?.includes("executeExchange")) {
     const idMatch = $request.url.match(/[?&]identification=([^&]+)/);
     if (idMatch && idMatch[1]) {
@@ -37,7 +36,7 @@ try {
       console.log("✅ IDENTIFICATION 已保存：" + identification);
       $notify("✅ IDENTIFICATION 提取成功", "", identification);
     } else {
-      console.log("❌ 無法從 URL 提取 identification");
+      console.log("❌ 无法提取 identification");
     }
 
     const signMatch = $request.url.match(/[?&]sign=([^&]+)/i);
@@ -47,13 +46,12 @@ try {
       console.log("✅ aSIGN 已保存：" + aSIGN);
       $notify("✅ aSIGN 提取成功", "", aSIGN);
     } else {
-      console.log("❌ 無法從 URL 提取 sign");
+      console.log("❌ 无法提取 sign");
     }
   } else {
-    console.log("⚠️ 非 executeExchange 請求，跳過 URL 部分提取");
+    console.log("⚠️ 非 executeExchange 请求，跳过提取");
   }
 
-  // ✅ 從 Headers 提取 UA/APPDEVICE/SMDeviceID/READERID/SIGN
   if ($request?.headers) {
     const headers = $request.headers;
     const UA = headers["User-Agent"] || headers["user-agent"] || "";
@@ -73,13 +71,13 @@ try {
     console.log("✅ SMDeviceID: " + SMDeviceID);
     console.log("✅ READERID: " + READERID);
     console.log("✅ SIGN: " + SIGN);
-    $notify("✅ Headers 提取成功", "", UA/APPDEVICE/SMDeviceID/READERID/SIGN);
+    $notify("✅ 提取成功", "", UA/APPDEVICE/SMDeviceID/READERID/SIGN);
   } else {
-    console.log("⚠️ 沒有 Headers 可提取");
+    console.log("⚠️ 没有可提取");
   }
 
 } catch (e) {
-  console.log("❌ 提取錯誤：" + e);
+  console.log("❌ 提取错误：" + e);
 }
 
 $done({});
