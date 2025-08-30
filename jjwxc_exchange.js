@@ -1,43 +1,39 @@
 /**
- * JJWXC exchange — 自動兌換晉江幣/回饋積分/月石
- * 適用 Quantumult X，搭配 task 使用
+ * JJWXC exchange — 自动兑换晋江币/回馈积分/月石
+ * 适用 Quantumult X，搭配 task 使用
    [task_local]
-   0 0 * * * jjwxc_exchange.js, tag=晉江幣兌換, enabled=false
+   0 0 * * * jjwxc_exchange.js, tag=晋江币抢兑, enabled=false
 
- * 原創於坤離，任何疑問參考：https://kunlineaten.notion.site
+ * 原创于坤离，任何疑问参考：https://kunlineaten.notion.site
 */
 
-// ✅ 確保先執行過 cookie 抓包腳本
 const IDENTIFICATION = $prefs.valueForKey("JJ_IDENTIFICATION") || "";
 const aSIGN         = $prefs.valueForKey("JJ_aSIGN") || "";
 const UA            = $prefs.valueForKey("JJ_UA") || "";
 const APPDEVICE     = $prefs.valueForKey("JJ_APPDEVICE") || "";
 const SMDEVICEID    = $prefs.valueForKey("JJ_SMDeviceID") || "";
 const READERID      = $prefs.valueForKey("JJ_READERID") || "";
+const versionCode   = 672;
+const hostOrigin    = "http://app.jjwxc.org";
 
-// ✅ 修改為要兌換的商品參數
-// App版本，與 UA 的 build 一致
-const versionCode = 672;
-const hostOrigin  = "http://app.jjwxc.org";
-// 商品ID（按需改，月石=1，晉江幣=200，回饋積分=201）
+// ✅ 修改为要兑换的商品参数（默认晋江币）
+// 按需改，月石=1，晋江币=200，回馈积分=201
 const welfare_exchange_id = 200;
-// 商品數量（上限：晉江幣=8，回饋積分=6）
+// 商品数量上限：月石=1，晋江币=8，回馈积分=6
 const number = 8;
 
-// ✅ 檢查必要變數
 if (!aSIGN || !UA || !APPDEVICE || !SMDEVICEID || !READERID || !IDENTIFICATION) {
-  console.log("❌ 缺少必要參數！");
+  console.log("❌ 缺少必要参数！");
   console.log("aSIGN: " + aSIGN);
   console.log("UA: " + UA);
   console.log("APPDEVICE: " + APPDEVICE);
   console.log("SMDEVICEID: " + SMDEVICEID);
   console.log("READERID: " + READERID);
   console.log("IDENTIFICATION: " + IDENTIFICATION);
-  $notify("❌ 缺少必要參數", "", "請先運行 cookie.js 抓包腳本");
+  $notify("❌ 缺少必要参数", "", "请先运行 cookie.js 抓包脚本");
   $done();
 }
 
-// ✅ 構造請求
 const url = `${hostOrigin}/newWelfareIos/executeExchange`
   + `?identification=${encodeURIComponent(IDENTIFICATION)}`
   + `&number=${encodeURIComponent(number)}`
@@ -96,7 +92,6 @@ $task.fetch(req).then(resp => {
     }
 
     if (code === "1004") {
-      // 通常为参数/sign/header不一致
       $notify("🔒 登入验证失败", "", o.message || "1004：请检查 sign/版本号/域名/Headers 是否一致");
       $done({ status: resp.statusCode, body: bodyText });
       return;
