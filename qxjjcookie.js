@@ -1,17 +1,3 @@
-/**
- * JJWXC cookie - 提取 IDENTIFICATION/UA/APPDEVICE/SMDeviceID/READERID/SIGN
- * 适用 Quantumult X，搭配 rewrite 使用
- * 开启后至【晋江文学城APP】-【我的】-【福利中心】随机兑换商品触发脚本
- * 使用完毕在"http"前加"#"关闭脚本，避免重复提取
-  [rewrite_local]
-  http:\/\/app\.jjwxc\.org\/newWelfareIos\/executeExchange\?identification url script-response-body jjwxc_cookie.js
-
-  [mitm]
-  hostname = app.jjwxc.org
-
- * 原创于坤离，任何疑问参考：https://kunlineaten.notion.site
- */
-
 function findKeyLike(obj, keyword) {
   for (const key in obj) {
     if (!obj.hasOwnProperty(key)) continue;
