@@ -1,5 +1,3 @@
-// JJWXC cookie 抓包 for Surge
-
 if ($request && $request.url.includes("executeExchange")) {
   const idMatch = $request.url.match(/[?&]identification=([^&]+)/);
   const signMatch = $request.url.match(/[?&]sign=([^&]+)/);
