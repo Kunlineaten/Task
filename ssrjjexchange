@@ -1,5 +1,3 @@
-// JJWXC 自动兑换 for Surge
-
 const IDENTIFICATION = $persistentStore.read("JJ_IDENTIFICATION");
 const aSIGN = $persistentStore.read("JJ_aSIGN");
 const UA = $persistentStore.read("JJ_UA");
