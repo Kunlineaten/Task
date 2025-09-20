@@ -10,7 +10,7 @@ const welfare_exchange_id = 200;
 const number = 8;
 
 if (!aSIGN || !UA || !APPDEVICE || !SMDEVICEID || !READERID || !IDENTIFICATION) {
-  $notification.post("❌ 缺少必要参数", "", "请先执行抓包脚本");
+  $notification.post("❌ 缺少必要参数", "请先执行抓包脚本", "aSIGN, UA, APPDEVICE, SMDEVICEID, READERID, IDENTIFICATION");
   $done();
 }
 
@@ -40,7 +40,7 @@ const headers = {
 
 $httpClient.get({ url, headers }, (error, response, data) => {
   if (error) {
-    $notification.post("❌ 请求失败", "", error);
+    $notification.post("❌ 请求失败", "网络错误", error);
     return $done();
   }
 
@@ -49,21 +49,27 @@ $httpClient.get({ url, headers }, (error, response, data) => {
     const code = o.code || "";
     const msg = o.message || "";
 
-    if (code === "200") {
-      $notification.post("✅ 兑换成功", "", msg);
-    } else if (code === "190014") {
-      $notification.post("⏳ 活动火爆", "", msg);
-    } else if (code === "190016") {
-      $notification.post("ℹ️ 已兑换", "", msg);
-    } else if (code === "190005") {
-      $notification.post("📅 活动未开始或已结束", "", msg);
-    } else if (code === "1004") {
-      $notification.post("🔒 登入验证失败", "", msg);
-    } else {
-      $notification.post("❌ 兑换失败", "", `code=${code} msg=${msg}`);
+    switch (code) {
+      case "200":
+        $notification.post("✅ 兑换成功", "", msg);
+        break;
+      case "190014":
+        $notification.post("⏳ 活动火爆", "请稍后再试", msg);
+        break;
+      case "190016":
+        $notification.post("ℹ️ 已兑换", "", msg);
+        break;
+      case "190005":
+        $notification.post("📅 活动未开始或已结束", "", msg);
+        break;
+      case "1004":
+        $notification.post("🔒 登入验证失败", "", msg);
+        break;
+      default:
+        $notification.post("❌ 未知错误", `code=${code}`, msg);
     }
   } catch (e) {
-    $notification.post("❌ 解析失败", "", String(e));
+    $notification.post("❌ 返回解析失败", "", String(e));
   }
 
   $done();
