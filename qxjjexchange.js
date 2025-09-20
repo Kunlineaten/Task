@@ -1,12 +1,3 @@
-/**
- * JJWXC exchange — 自动兑换晋江币/回馈积分/月石
- * 适用 Quantumult X，搭配 task 使用
-   [task_local]
-   0 0 * * * jjwxc_exchange.js, tag=晋江币抢兑, enabled=false
-
- * 原创于坤离，任何疑问参考：https://kunlineaten.notion.site
-*/
-
 const IDENTIFICATION = $prefs.valueForKey("JJ_IDENTIFICATION") || "";
 const aSIGN         = $prefs.valueForKey("JJ_aSIGN") || "";
 const UA            = $prefs.valueForKey("JJ_UA") || "";
@@ -15,11 +6,7 @@ const SMDEVICEID    = $prefs.valueForKey("JJ_SMDeviceID") || "";
 const READERID      = $prefs.valueForKey("JJ_READERID") || "";
 const versionCode   = 672;
 const hostOrigin    = "http://app.jjwxc.org";
-
-// ✅ 修改为要兑换的商品参数（默认晋江币）
-// 按需改，月石=1，晋江币=200，回馈积分=201
 const welfare_exchange_id = 200;
-// 商品数量上限：月石=1，晋江币=8，回馈积分=6
 const number = 8;
 
 if (!aSIGN || !UA || !APPDEVICE || !SMDEVICEID || !READERID || !IDENTIFICATION) {
