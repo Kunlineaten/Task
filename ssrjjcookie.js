@@ -4,12 +4,10 @@ if ($request && $request.url.includes("executeExchange")) {
 
   if (idMatch) {
     $persistentStore.write(decodeURIComponent(idMatch[1]), "JJ_IDENTIFICATION");
-    $notification.post("✅ IDENTIFICATION 获取成功", "", idMatch[1]);
   }
 
   if (signMatch) {
     $persistentStore.write(decodeURIComponent(signMatch[1]), "JJ_aSIGN");
-    $notification.post("✅ aSIGN 获取成功", "", signMatch[1]);
   }
 
   const headers = $request.headers;
