@@ -1,4 +1,4 @@
-/*****
+/*
  * 原創於坤離，任何疑問參考：https://kunlineaten.notion.site
 
 [rewrite_local]
@@ -6,7 +6,7 @@
 
 [mitm]
 hostname = app.jjwxc.org, app.jjwxc.net
-*****/
+*/
 function findKeyLike(obj, keyword) {
   for (const key in obj) {
     if (!obj.hasOwnProperty(key)) continue;
