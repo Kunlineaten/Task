@@ -1,3 +1,6 @@
+/*
+* 原創於坤離，任何疑問參考：https://kunlineaten.notion.site
+ */
 const IDENTIFICATION = $persistentStore.read("JJ_IDENTIFICATION");
 const aSIGN = $persistentStore.read("JJ_aSIGN");
 const UA = $persistentStore.read("JJ_UA");
