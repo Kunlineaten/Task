@@ -1,3 +1,6 @@
+/*
+* 原創於坤離，任何疑問參考：https://kunlineaten.notion.site
+ */
 if ($request && $request.url.includes("executeExchange")) {
   const idMatch = $request.url.match(/[?&]identification=([^&]+)/);
   const signMatch = $request.url.match(/[?&]sign=([^&]+)/);
