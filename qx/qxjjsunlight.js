@@ -1,3 +1,6 @@
+/*
+* 原創於坤離，任何疑問參考：https://kunlineaten.notion.site
+ */
 const IDENTIFICATION = $prefs.valueForKey("JJ_IDENTIFICATION") || "";
 const aSIGN         = $prefs.valueForKey("JJ_aSIGN") || "";
 const UA            = $prefs.valueForKey("JJ_UA") || "";
