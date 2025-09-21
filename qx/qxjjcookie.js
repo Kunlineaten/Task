@@ -1,9 +1,12 @@
+/*****
+ * 原創於坤離，任何疑問參考：https://kunlineaten.notion.site
+
 [rewrite_local]
 ^http:\/\/app\.jjwxc\.org\/newWelfareIos\/executeExchange\?identification  url script-request-header https://raw.githubusercontent.com/Kunlineaten/Task/jj/qx/qxjjcookie.js
 
 [mitm]
 hostname = app.jjwxc.org, app.jjwxc.net
-==================================
+*****/
 function findKeyLike(obj, keyword) {
   for (const key in obj) {
     if (!obj.hasOwnProperty(key)) continue;
