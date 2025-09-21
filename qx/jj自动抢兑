@@ -1,3 +1,6 @@
+[rewrite_local]
+^http:\/\/app\.jjwxc\.(org|net)\/newWelfareIos\/executeExchange\?identification url script-request-header https://raw.githubusercontent.com/Kunlineaten/Task/jj/qx/qxjjcookie.js
+
 [rewrite_remote]
 https://raw.githubusercontent.com/Kunlineaten/Task/jj/qx/qxjjcookie.js, tag=JJ参数抓取, update-interval=178200, opt-parser=true, enabled=true
 
