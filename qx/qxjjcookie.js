@@ -2,7 +2,7 @@
 https://raw.githubusercontent.com/Kunlineaten/Task/Task/jj/qx/qxjjcookie.js, tag=JJ提取cookie, update-interval=86400, opt-parser=true, enabled=true
 
 [rewrite_local]
-^http:\/\/app\.jjwxc\.org\/newWelfareIos\/executeExchange\?identification  url script-request-header https://raw.githubusercontent.com/Kunlineaten/Task/jj/qx/qxjjcookie.js
+^http:\/\/app\.jjwxc\.org\/newWelfareIos\/executeExchange\?identification  url script-request-header https://raw.githubusercontent.com/Kunlineaten/Task/refs/heads/jj/qx/qxjjcookie.js
 
 [mitm]
 hostname = app.jjwxc.org, app.jjwxc.net
