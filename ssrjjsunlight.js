@@ -10,7 +10,6 @@ const welfare_exchange_id = 201;
 const number = 6;
 
 if (!aSIGN || !UA || !APPDEVICE || !SMDEVICEID || !READERID || !IDENTIFICATION) {
-  $notification.post("❌ 缺少必要参数", "请先执行抓包脚本", "aSIGN, UA, APPDEVICE, SMDEVICEID, READERID, IDENTIFICATION");
   $done();
 }
 
