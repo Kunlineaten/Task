@@ -18,7 +18,7 @@ if ($request && $request.url.includes("executeExchange")) {
     $persistentStore.write(headers["READERID"] || headers["readerid"], "JJ_READERID");
     $persistentStore.write(headers["SIGN"] || headers["sign"], "JJ_SIGN");
 
-    $notification.post("✅ Headers 提取成功", "", "所有参数已保存");
+    $notification.post("✅ 提取成功", "", "所有参数已保存");
   }
 }
 
