@@ -1,3 +1,12 @@
+[rewrite_remote]
+https://raw.githubusercontent.com/Kunlineaten/Task/Task/jj/qx/qxjjcookie.js, tag=JJ提取cookie, update-interval=86400, opt-parser=true, enabled=true
+
+[rewrite_local]
+^https?:\/\/app\.jjwxc\.(org|net)\/newWelfareIos\/executeExchange url script-request-header JJ提取cookie
+
+[mitm]
+hostname = app.jjwxc.org, app.jjwxc.net
+
 function findKeyLike(obj, keyword) {
   for (const key in obj) {
     if (!obj.hasOwnProperty(key)) continue;
