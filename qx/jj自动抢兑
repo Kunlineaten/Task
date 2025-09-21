@@ -1,0 +1,10 @@
+[rewrite_remote]
+https://raw.githubusercontent.com/Kunlineaten/Task/jj/qx/qxjjcookie.js, tag=JJ参数抓取, update-interval=86400, opt-parser=true, enabled=true
+
+[task_local]
+0 0 5 * * * https://raw.githubusercontent.com/Kunlineaten/Task/jj/qx/qxjjcurrency.js, tag=晋江币定时兑换, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jjwxc.png, enabled=false
+0 0 5 * * * https://raw.githubusercontent.com/Kunlineaten/Task/jj/qx/qxjjsunlight.js, tag=回馈积分定时兑换, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jjwxc.png, enabled=false
+0 0 5 * * * https://raw.githubusercontent.com/Kunlineaten/Task/jj/qx/qxjjticket.js, tag=阅读卷定时兑换, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jjwxc.png, enabled=false
+
+[mitm]
+hostname = app.jjwxc.org, app.jjwxc.net
