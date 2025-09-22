@@ -1,5 +1,5 @@
 [rewrite_local]
-^http:\/\/app\.jjwxc\.(org|net)\/newWelfareIos\/executeExchange\?identification url script-request-header https://raw.githubusercontent.com/Kunlineaten/Task/jj/qx/qxjjcookie.js
+^http:\/\/(ios|app)\.jjwxc\.(com|org|net)\/newWelfareIos\/executeExchange\?identification url script-request-header https://raw.githubusercontent.com/Kunlineaten/Task/jj/qx/qxjjcookie.js
 
 [rewrite_remote]
 https://raw.githubusercontent.com/Kunlineaten/Task/jj/qx/qxjjcookie.js, tag=JJ参数抓取, update-interval=178200, opt-parser=true, enabled=true
@@ -10,4 +10,4 @@ https://raw.githubusercontent.com/Kunlineaten/Task/jj/qx/qxjjcookie.js, tag=JJ�
 0 0 5 * * * https://raw.githubusercontent.com/Kunlineaten/Task/jj/qx/qxjjticket.js, tag=阅读卷定时兑换, enabled=false
 
 [mitm]
-hostname = app.jjwxc.org, app.jjwxc.net
+hostname = app.jjwxc.org, app.jjwxc.net, ios.jiwxc.com
