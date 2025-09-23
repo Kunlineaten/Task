@@ -23,11 +23,18 @@ const url = `http://app.jjwxc.org/newWelfareIos/executeExchange`
   + `&welfare_exchange_id=${welfare_exchange_id}`;
 
 const headers = {
-  'readerid': READERID
+  'readerid': READERID,
+  'Connection': 'keep-alive',
+  'Accept-Encoding': 'gzip, deflate',
   'APPDEVICE': APPDEVICE,
+  'versiontype': 'reading',
+  'source': 'ios',
   'User-Agent': UA,
   'versionCode': String(versionCode),
+  'platformType': 'iOS',
   'Host': 'app.jjwxc.org',
+  'Accept-Language': 'zh-Hant-CN',
+  'Accept': '*/*',
   'sign': aSIGN
 };
 
