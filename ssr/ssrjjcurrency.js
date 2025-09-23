@@ -11,7 +11,7 @@ const versionCode = 672;
 const welfare_exchange_id = 200;
 const number = 8;
 
-if (!aSIGN || !UA || !APPDEVICE || !SMDEVICEID || !READERID || !IDENTIFICATION) {
+if (!aSIGN || !UA || !APPDEVICE || !READERID || !IDENTIFICATION) {
   $done();
 }
 
