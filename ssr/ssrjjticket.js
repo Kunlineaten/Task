@@ -6,7 +6,7 @@ const aSIGN = $persistentStore.read("JJ_aSIGN");
 const UA = $persistentStore.read("JJ_UA");
 const APPDEVICE = $persistentStore.read("JJ_APPDEVICE");
 const READERID = $persistentStore.read("JJ_READERID");
-const versionCode = $persistentStore.read("JJ_VERSIONCODE");
+const versionCode = $persistentStore.read("JJ_versionCode");
 
 const welfare_exchange_id = 233;
 const number = 1;
@@ -26,7 +26,7 @@ const headers = {
   'readerid': READERID,
   'APPDEVICE': APPDEVICE,
   'User-Agent': UA,
-  'versionCode': String(versionCode),
+  'versionCode': versionCode,
   'Host': 'app.jjwxc.org',
   'sign': aSIGN
 };
