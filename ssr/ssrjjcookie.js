@@ -20,6 +20,8 @@ if ($request && $request.url.includes("executeExchange")) {
     $persistentStore.write(headers["SMDeviceID"] || headers["smdeviceid"], "JJ_SMDeviceID");
     $persistentStore.write(headers["READERID"] || headers["readerid"], "JJ_READERID");
     $persistentStore.write(headers["SIGN"] || headers["sign"], "JJ_SIGN");
+    $persistentStore.write(headers["versionCode"] || headers["versionCode"], "JJ_versionCode");
+
     
     $notification.post("✅ 提取成功", "", "所有参数已保存");
   }
