@@ -5,14 +5,13 @@ const IDENTIFICATION = $persistentStore.read("JJ_IDENTIFICATION");
 const aSIGN = $persistentStore.read("JJ_aSIGN");
 const UA = $persistentStore.read("JJ_UA");
 const APPDEVICE = $persistentStore.read("JJ_APPDEVICE");
-const SMDEVICEID = $persistentStore.read("JJ_SMDeviceID");
 const READERID = $persistentStore.read("JJ_READERID");
 
 const versionCode = 672;
 const welfare_exchange_id = 201;
 const number = 6;
 
-if (!aSIGN || !UA || !APPDEVICE || !SMDEVICEID || !READERID || !IDENTIFICATION) {
+if (!aSIGN || !UA || !APPDEVICE || !READERID || !IDENTIFICATION) {
   $done();
 }
 
@@ -24,19 +23,11 @@ const url = `http://app.jjwxc.org/newWelfareIos/executeExchange`
   + `&welfare_exchange_id=${welfare_exchange_id}`;
 
 const headers = {
-  'readerid': READERID,
-  'Connection': 'keep-alive',
-  'Accept-Encoding': 'gzip, deflate',
+  'readerid': READERID
   'APPDEVICE': APPDEVICE,
-  'versiontype': 'reading',
-  'source': 'ios',
   'User-Agent': UA,
   'versionCode': String(versionCode),
-  'platformType': 'iOS',
-  'SMDeviceID': SMDEVICEID,
   'Host': 'app.jjwxc.org',
-  'Accept-Language': 'zh-Hant-CN',
-  'Accept': '*/*',
   'sign': aSIGN
 };
 
