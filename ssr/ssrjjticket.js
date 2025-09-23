@@ -1,6 +1,6 @@
 /*
 * 原創於坤離，任何疑問參考：https://kunlineaten.notion.site
- */
+*/
 const IDENTIFICATION = $persistentStore.read("JJ_IDENTIFICATION");
 const aSIGN = $persistentStore.read("JJ_aSIGN");
 const UA = $persistentStore.read("JJ_UA");
@@ -42,5 +42,28 @@ $httpClient.get({ url, headers }, (error, response, data) => {
     const code = o.code || "";
     const msg = o.message || "";
 
-    switch (code) 
-  });
+    switch (code) {
+      case "200":
+        $notification.post("✅ 兑换成功", "", msg);
+        break;
+      case "190014":
+        $notification.post("⏳ 活动火爆", "请稍后再试", msg);
+        break;
+      case "190016":
+        $notification.post("ℹ️ 已兑换", "", msg);
+        break;
+      case "190005":
+        $notification.post("📅 活动未开始或已结束", "", msg);
+        break;
+      case "1004":
+        $notification.post("🔒 登入验证失败", "", msg);
+        break;
+      default:
+        $notification.post("❌ 未知错误", `code=${code}`, msg);
+    }
+  } catch (e) {
+    $notification.post("❌ 返回解析失败", "", String(e));
+  }
+
+  $done();
+});
