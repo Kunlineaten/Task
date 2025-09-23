@@ -21,16 +21,7 @@ if ($request && $request.url.includes("executeExchange")) {
     $persistentStore.write(headers["READERID"] || headers["readerid"], "JJ_READERID");
     $persistentStore.write(headers["SIGN"] || headers["sign"], "JJ_SIGN");
     
-    $notification.post(
-  "✅ 提取成功",
-  "",
-  `identification: ${identification}
-sign: ${sign}
-readerid: ${readerid}
-APPDEVICE: ${appdevice}
-SMDeviceID: ${smdeviceid}
-UA: ${ua}`
-);
+    $notification.post("✅ 提取成功", "", "所有参数已保存");
   }
 }
 
