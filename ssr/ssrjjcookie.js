@@ -21,13 +21,16 @@ if ($request && $request.url.includes("executeExchange")) {
     $persistentStore.write(headers["READERID"] || headers["readerid"], "JJ_READERID");
     $persistentStore.write(headers["SIGN"] || headers["sign"], "JJ_SIGN");
     
-    savedParams.push(`📌 UA: ${ua}`);
-    savedParams.push(`📌 APPDEVICE: ${appDevice}`);
-    savedParams.push(`📌 SMDeviceID: ${smDeviceId}`);
-    savedParams.push(`📌 READERID: ${readerId}`);
-    savedParams.push(`📌 SIGN: ${headerSign}`);
-    
-    $notification.post("✅ 提取成功", "", "所有参数已保存");
+    $notification.post($notification.post(
+  "✅ 提取成功",
+  "",
+  `identification: ${identification}
+sign: ${sign}
+readerid: ${readerid}
+APPDEVICE: ${appdevice}
+SMDeviceID: ${smdeviceid}
+UA: ${ua}`
+);
   }
 }
 
