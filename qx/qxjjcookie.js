@@ -1,5 +1,7 @@
 /*
- * 原創於坤離，任何疑問參考：https://kunlineaten.notion.site
+ * 未经授权不得传播、修改或转售。脚本更新请以作者提供的最新版本为准。
+ * 若需获取更新或遇到问题，请通过原购买渠道联系作者，或访问网站：https://kunlineaten.notion.site
+ */
 
 [rewrite_local]
 ^http:\/\/app\.jjwxc\.org\/newWelfareIos\/executeExchange\?identification  url script-request-header https://raw.githubusercontent.com/Kunlineaten/Task/jj/qx/qxjjcookie.js
