@@ -1,7 +1,7 @@
 /*
 [task_local]
 # 每天 09:05 執行一次
-5 9 * * * https://raw.githubusercontent.com/<你的倉庫>/Task/main/qx/gkd011_checkin_qx.js, tag=GKD011 自動簽到, enabled=true
+5 9 * * * https://raw.githubusercontent.com/Kunlineaten/Task/main/qx/gkd011_checkin_qx.js, tag=GKD011 自動簽到, enabled=true
 
 [mitm]
 hostname = www.gkd011.top
@@ -9,7 +9,7 @@ hostname = www.gkd011.top
 
 const CFG = {
   baseUrl: "https://www.gkd011.top",
-  checkinPath: "/api/checkin", // TODO: 改成抓包得到的簽到接口
+  checkinPath: "/api/checkin", // TODO: 抓包得到的簽到接口
   cookie: $prefs.valueForKey("GKD011_COOKIE") || "",
   timeout: 20000
 };
