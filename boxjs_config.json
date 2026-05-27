@@ -1,0 +1,49 @@
+{
+  "id": "world_news_pusher",
+  "name": "🌍 世界新闻每日推送",
+  "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/News.png",
+  "author": "Nancy",
+  "desc": "每天 10:00 和 17:00 推送 5 条不重复的国际主流新闻，包含标题、摘要和链接",
+  "settings": [
+    {
+      "id": "newsapi_key",
+      "name": "📌 NewsAPI Key (必填)",
+      "val": "",
+      "type": "text",
+      "desc": "访问 https://newsapi.org/register 免费注册，获取 API Key。免费版每天 100 个请求额度足够用。"
+    },
+    {
+      "id": "news_sources",
+      "name": "📰 新闻来源 (可选修改)",
+      "val": "bbc-news,reuters,associated-press,cnn,the-guardian-uk,financial-times,the-verge",
+      "type": "textarea",
+      "desc": "逗号分隔的来源代码。更多来源: https://newsapi.org/docs/endpoints/sources"
+    },
+    {
+      "id": "news_exclude_keywords",
+      "name": "🚫 排除关键词 (可选)",
+      "val": "crypto,bitcoin,nft,elon musk",
+      "type": "textarea",
+      "desc": "包含这些词的新闻会被过滤。逗号分隔，不区分大小写。"
+    },
+    {
+      "id": "news_count_per_push",
+      "name": "📊 每次推送条数",
+      "val": "5",
+      "type": "text",
+      "desc": "推荐 5-10 条。太多会让通知很长。"
+    }
+  ],
+  "scripts": [
+    {
+      "name": "🌍 推送新闻 (自动触发)",
+      "script": "world_news_push.js",
+      "desc": "已配置在 10:00 和 17:00 自动运行"
+    },
+    {
+      "name": "🧪 测试推送 (手动运行)",
+      "script": "world_news_push.js",
+      "desc": "点击立即推送一次，用来测试配置是否正确"
+    }
+  ]
+}
